@@ -1,3 +1,5 @@
+import os
+
 import pathlib
 import textwrap
 
@@ -13,24 +15,28 @@ def to_markdown(text):
 
 #used to securely store your API key
 #from google. import userdata
-GOOGLE_API_KEY = 'AIzaSyANkz6P7l-zj_oQbci37quuv5p8L_R1Cuk'
+api_key = os.environ.get('API_KEY')
 
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=api_key)
 
 #list models
 for m in genai.list_models():
     if 'generateContent' in m.supported_generation_methods:
         print(m.name)
 
-model = genai.GenerativeModel('gemini-pro-vision')
+model = genai.GenerativeModel('gemini-pro')
 
 #underliyng disease
-prompt_1 = "diabetes"
+prompt_1 = " "
 #allergies 
-prompt_2 = "lactose intolerant"
+prompt_2 = " "
 #Dietery restirictions
-prompt_3="vegan"
+prompt_3=" "
+#Age
+prompt_4=" "
+#Gender
+prompt_5 = " "
 
 #%%time
-response = model.generate_content("Provide a breakfast, lunch and dinner meal plan for a preson with the following"+ prompt_1+","+ prompt_2+","+ prompt_3)
-display(to_markdown(response.text)) 
+response = model.generate_content("Suggest three well balanced and diverse meal plan in tables of rows with days of the week and columns of the different meals using locally sourced ingridients for a person with the following"+ prompt_1+","+ prompt_2+","+ prompt_3+","+ prompt_4+","+ prompt_5)
+display(to_markdown(response.text))
