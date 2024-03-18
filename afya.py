@@ -13,7 +13,7 @@ def to_markdown(text):
 
 #used to securely store your API key
 #from google. import userdata
-GOOGLE_API_KEY = 'AIzaSyANkz6P7l-zj_oQbci37quuv5p8L_R1Cuk'
+GOOGLE_API_KEY = '123'
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
@@ -22,7 +22,7 @@ for m in genai.list_models():
     if 'generateContent' in m.supported_generation_methods:
         print(m.name)
 
-model = genai.GenerativeModel('gemini-pro-vision')
+model = genai.GenerativeModel('gemini-pro')
 
 #underliyng disease
 prompt_1 = "diabetes"
