@@ -33,7 +33,7 @@ prompt_2 = "lactose intolerant"
 #Dietery restirictions
 prompt_3="vegan"
 #Age
-prompt_4="12 years"
+prompt_4=" "
 #Gender
 prompt_5 = "female "
 
