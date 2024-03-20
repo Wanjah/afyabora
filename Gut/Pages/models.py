@@ -20,6 +20,5 @@ class AssessementForm(ModelForm):
     class Meta:
         model = prompts
         fields = '__all__'
-        
 
         
