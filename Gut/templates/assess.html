@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Form</title>
+</head>
+<body>
+    <h1>Assessment Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_underlying_disease">Underlying Disease:</label><br>
+        <input type="text" id="id_underlying_disease" name="underlying_disease"><br><br>
+        
+        <label for="id_allergies">Allergies:</label><br>
+        <input type="text" id="id_allergies" name="allergies"><br><br>
+        
+        <label for="id_dietary_restrictions">Dietary Restrictions:</label><br>
+        <input type="text" id="id_dietary_restrictions" name="dietary_restrictions"><br><br>
+        
+        <label for="id_age">Age:</label><br>
+        <input type="text" id="id_age" name="age"><br><br>
+        
+        <label for="id_gender">Gender:</label><br>
+        <input type="text" id="id_gender" name="gender"><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
