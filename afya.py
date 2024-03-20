@@ -1,3 +1,5 @@
+import os
+
 import pathlib
 import os
 import textwrap
@@ -29,9 +31,12 @@ model = genai.GenerativeModel('gemini-pro')
 prompt_1 = " "
 #allergies 
 prompt_2 = " "
-#Dietery restirictions
+#Age
+prompt_4=" "
+#Gender
+prompt_5 = "female "
 prompt_3=" "
 
 #%%time
-response = model.generate_content("Provide a breakfast, lunch and dinner meal plan for a preson with the following"+ prompt_1+","+ prompt_2+","+ prompt_3)
-display(to_markdown(response.text)) 
+response = model.generate_content("Suggest three well balanced and diverse meal plan in tables of rows with days of the week and columns of the different meals using locally sourced ingridients for a person with the following"+ prompt_1+","+ prompt_2+","+ prompt_3+","+ prompt_4+","+ prompt_5)
+display(to_markdown(response.text))
