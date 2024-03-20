@@ -1,6 +1,7 @@
 import os
 
 import pathlib
+import os
 import textwrap
 
 import google.generativeai as genai
@@ -27,15 +28,14 @@ for m in genai.list_models():
 model = genai.GenerativeModel('gemini-pro')
 
 #underliyng disease
-prompt_1 = "diabetes "
+prompt_1 = " "
 #allergies 
-prompt_2 = "lactose intolerant"
-#Dietery restirictions
-prompt_3="vegan"
+prompt_2 = " "
 #Age
 prompt_4=" "
 #Gender
 prompt_5 = "female "
+prompt_3=" "
 
 #%%time
 response = model.generate_content("Suggest three well balanced and diverse meal plan in tables of rows with days of the week and columns of the different meals using locally sourced ingridients for a person with the following"+ prompt_1+","+ prompt_2+","+ prompt_3+","+ prompt_4+","+ prompt_5)
