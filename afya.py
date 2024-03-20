@@ -1,4 +1,5 @@
 import pathlib
+import os
 import textwrap
 
 import google.generativeai as genai
@@ -13,9 +14,9 @@ def to_markdown(text):
 
 #used to securely store your API key
 #from google. import userdata
-GOOGLE_API_KEY = '123'
+api_key = os.environ.get('API_KEY')
 
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=api_key)
 
 #list models
 for m in genai.list_models():
@@ -25,11 +26,11 @@ for m in genai.list_models():
 model = genai.GenerativeModel('gemini-pro')
 
 #underliyng disease
-prompt_1 = "diabetes"
+prompt_1 = " "
 #allergies 
-prompt_2 = "lactose intolerant"
+prompt_2 = " "
 #Dietery restirictions
-prompt_3="vegan"
+prompt_3=" "
 
 #%%time
 response = model.generate_content("Provide a breakfast, lunch and dinner meal plan for a preson with the following"+ prompt_1+","+ prompt_2+","+ prompt_3)
