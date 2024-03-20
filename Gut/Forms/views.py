@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def userForm(request):
-    return HttpResponse('<h1>Forms<h1>')
+    return HttpResponse()
     '''
     if request.method == 'POST':
         form = Form(request.POST)
