@@ -13,6 +13,7 @@ class prompts(models.Model):
     Gender = models.CharField(max_length=1, choices=gender_choices)
     Allergies = models.CharField(max_length=20, null=False, blank= False)
     Medical_Condition = models.CharField(max_length=20, null=False, blank= False)
+    Dietary_Restrictions = models.CharField(max_length=20, null=True, blank=False)
     Food_Preferences = models.CharField(max_length=20, null=False, blank= False)
 
 #create model form
@@ -20,5 +21,6 @@ class AssessementForm(ModelForm):
     class Meta:
         model = prompts
         fields = '__all__'
+
 
         

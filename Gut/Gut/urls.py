@@ -20,5 +20,5 @@ from Pages import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('assess/',views.AssessmentForm_view, name='assess  ')
+    path('assess/',views.AssessmentForm_view, name='assess')
 ]
