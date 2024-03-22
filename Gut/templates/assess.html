@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assessment Form</title>
+
 </head>
 <body>
     <h1>Assessment Form</h1>
@@ -11,7 +12,13 @@
         {% csrf_token %}
         {{form.as_p}} <!--renders form fields-->
            
-        <button type="submit">Submit</button>
+        <button id="btn" type="submit">Submit</button>
     </form>
+<span id="resultContainer">
+    {% if generatedContent %}
+    <h2>Meal Plan</h2>
+    <span>{{generatedContent | safe}}</span>
+    {% endif %}
+</span>
 </body>
 </html>
