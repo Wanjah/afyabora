@@ -37,20 +37,18 @@ def AssessmentForm_view(request):
             model = genai.GenerativeModel('gemini-pro')
 
             # Generate content using prompts from form data
-            response = model.generate_content(
-                "Suggest three well-balanced and diverse meal plans in tables of rows with days of the week and columns of the different meals using locally sourced ingredients for a person with the following: {}, {}, {}, {}, {}".format(
-                    prompt_1, prompt_2, prompt_3, prompt_4, prompt_5,Prompt_6
-                )
-            )
+            response = model.generate_content("Suggest a well balanced and diverse meal plan in a table of rows with days of the week and columns of different meals(day,breakfast,lunch,dinner,snacks) using locally sourced ingridients"+ prompt_1+"years"+","+ prompt_2+","+ prompt_3+","+ prompt_4+","+ prompt_5+","+ Prompt_6) 
 
             # Display generated content
-            display(to_markdown(response.text))
+            generatedContent= textwrap.indent(response.text, '>')
+            return render(request, 'assess.html', {'form': form}, {'generatedContent': generatedContent})
 
     else:
         form = AssessementForm()
 
     return render(request, 'assess.html', {'form': form})
-
+'''
 def to_markdown(text):
     text.replace('.', ' *')
     return Markdown(textwrap.indent(text, ' >', predicate=lambda _: True))
+'''
